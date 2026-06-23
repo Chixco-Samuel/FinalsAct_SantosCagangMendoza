@@ -3,35 +3,34 @@ package com.barangay.models;
 import java.util.Date;
 
 public class PaymentTransaction {
-  
     private String transactionId;
-    private String residentId;    
+    private String residentId;     
     private String purpose;        
     private double amount;
     private Date transactionDate;
     private String paymentStatus;  
 
-   
     public PaymentTransaction() {
         this.transactionDate = new Date(); 
     }
 
-
     public PaymentTransaction(String transactionId, String residentId, String purpose, double amount, String paymentStatus) {
-        this.transactionId = transactionId;
-        this.residentId = residentId;
-        this.purpose = purpose;
-        this.amount = amount;
+        setTransactionId(transactionId);
+        setResidentId(residentId);
+        setPurpose(purpose);
+        setAmount(amount);
+        setPaymentStatus(paymentStatus);
         this.transactionDate = new Date(); 
-        this.paymentStatus = paymentStatus;
     }
-
 
     public String getTransactionId() {
         return transactionId;
     }
 
     public void setTransactionId(String transactionId) {
+        if (transactionId == null || transactionId.trim().isEmpty()) {
+            throw new IllegalArgumentException("Transaction ID cannot be null or empty.");
+        }
         this.transactionId = transactionId;
     }
 
@@ -40,6 +39,9 @@ public class PaymentTransaction {
     }
 
     public void setResidentId(String residentId) {
+        if (residentId == null || residentId.trim().isEmpty()) {
+            throw new IllegalArgumentException("Resident ID cannot be null or empty.");
+        }
         this.residentId = residentId;
     }
 
@@ -48,6 +50,9 @@ public class PaymentTransaction {
     }
 
     public void setPurpose(String purpose) {
+        if (purpose == null || purpose.trim().isEmpty()) {
+            throw new IllegalArgumentException("Purpose cannot be null or empty.");
+        }
         this.purpose = purpose;
     }
 
@@ -56,6 +61,9 @@ public class PaymentTransaction {
     }
 
     public void setAmount(double amount) {
+        if (amount <= 0) {
+            throw new IllegalArgumentException("Payment amount must be greater than zero. Negative values are not allowed.");
+        }
         this.amount = amount;
     }
 
@@ -64,6 +72,12 @@ public class PaymentTransaction {
     }
 
     public void setTransactionDate(Date transactionDate) {
+        if (transactionDate == null) {
+            throw new IllegalArgumentException("Transaction date cannot be null.");
+        }
+        if (transactionDate.after(new Date())) {
+            throw new IllegalArgumentException("Transaction date cannot be in the future.");
+        }
         this.transactionDate = transactionDate;
     }
 
@@ -72,10 +86,18 @@ public class PaymentTransaction {
     }
 
     public void setPaymentStatus(String paymentStatus) {
-        this.paymentStatus = paymentStatus;
+        if (paymentStatus == null || paymentStatus.trim().isEmpty()) {
+            throw new IllegalArgumentException("Payment status cannot be null or empty.");
+        }
+        
+        String status = paymentStatus.trim().toUpperCase();
+        if (status.equals("PENDING") || status.equals("COMPLETED") || status.equals("FAILED")) {
+            this.paymentStatus = status;
+        } else {
+            throw new IllegalArgumentException("Invalid status. Must be PENDING, COMPLETED, or FAILED.");
+        }
     }
 
-  
     @Override
     public String toString() {
         return "PaymentTransaction{" +
