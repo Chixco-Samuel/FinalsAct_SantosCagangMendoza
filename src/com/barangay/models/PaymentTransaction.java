@@ -1,6 +1,7 @@
 package com.barangay.models;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class PaymentTransaction {
     private String transactionId;
@@ -96,6 +97,19 @@ public class PaymentTransaction {
         } else {
             throw new IllegalArgumentException("Invalid status. Must be PENDING, COMPLETED, or FAILED.");
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PaymentTransaction that = (PaymentTransaction) o;
+        return Objects.equals(transactionId, that.transactionId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(transactionId);
     }
 
     @Override
