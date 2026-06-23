@@ -1,4 +1,4 @@
-package barangay.models;
+package com.barangay.models;
 
 import java.util.Date;
 
