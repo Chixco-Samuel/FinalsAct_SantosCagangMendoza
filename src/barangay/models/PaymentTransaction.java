@@ -3,7 +3,7 @@ package barangay.models;
 import java.util.Date;
 
 public class PaymentTransaction {
-    // 1. Private Attributes
+  
     private String transactionId;
     private String residentId;    
     private String purpose;        
