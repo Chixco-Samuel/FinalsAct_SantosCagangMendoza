@@ -6,34 +6,42 @@ public class BarangayService {
     private String description;
 
     public BarangayService(String serviceId, String serviceName, String description) {
+        setServiceId(serviceId);
+        setServiceName(serviceName);
+        setDescription(description);
+    }
+
+    public void setServiceId(String serviceId) {
+        if (serviceId == null || serviceId.trim().isEmpty()) {
+            throw new IllegalArgumentException("Service ID cannot be null or empty.");
+        }
         this.serviceId = serviceId;
-        this.serviceName = serviceName;
-        this.description = description;
- 
     }
 
      public String getServiceId() {
         return serviceId;
     }
 
-    public void setServiceId(String serviceId) {
-        this.serviceId = serviceId;
+    public void setServiceName(String serviceName) {
+        if (serviceName == null || serviceName.trim().isEmpty()) {
+            throw new IllegalArgumentException("Service name cannot be null or empty.");
+        }
+        this.serviceName = serviceName;
     }
 
     public String getServiceName() {
         return serviceName;
     }
 
-    public void setServiceName(String serviceName) {
-        this.serviceName = serviceName;
+    public void setDescription(String description) {
+        if (description == null || description.trim().isEmpty()) {
+            throw new IllegalArgumentException("Description cannot be null or empty.");
+        }
+        this.description = description;
     }
 
     public String getDescription() {
         return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     @Override
