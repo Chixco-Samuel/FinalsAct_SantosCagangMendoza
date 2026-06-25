@@ -36,6 +36,19 @@ public class BarangayService {
         this.description = description;
     }
 
+    @Override
+    public String toString() {
+        return "BarangayService{" +
+                "serviceId='" + serviceId + '\'' +
+                ", serviceName='" + serviceName + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
+}
+    
+
+
+
 
 
 
