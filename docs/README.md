@@ -24,5 +24,6 @@ Rico
 
 Jacob
 
-* 
+* Programmed BarangayService file
+* Updated BarangayService 
 
