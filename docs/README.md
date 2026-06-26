@@ -15,7 +15,14 @@ Chico
 
 
 Rico
-
+* Added PaymentTransaction.java
+* Added validation for setters
+* Added Validation in Setters
+* Added the right path of the package and added rejection for negative vales
+* Added equals
+* Added PaymentService.java
+* 
+* 
 * 
 
 
