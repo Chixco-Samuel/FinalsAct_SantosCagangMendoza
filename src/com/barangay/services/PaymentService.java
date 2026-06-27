@@ -1,4 +1,5 @@
 package com.barangay.services;
+import com.barangay.exception.ExceptionHandling;
 import com.barangay.interfaces.Payment;
 import com.barangay.models.BarangayService;
 import com.barangay.models.PaymentTransaction;
@@ -14,11 +15,10 @@ public class PaymentService extends BarangayService implements Payment {
     }
 
     @Override
-    public void processPayment(double amount) {
+    public void processPayment(double amount) throws ExceptionHandling {
         if (amount <= 0) {
-            throw new IllegalArgumentException("Payment amount must be greater than zero.");
+            throw new ExceptionHandling("Payment amount must be greater than zero.");
         }
-        
         String generatedId = "TXN-" + (transactions.size() + 1);
         PaymentTransaction newTxn = new PaymentTransaction(generatedId, "UNKNOWN", "General Payment", amount, "COMPLETED");
         transactions.add(newTxn);
