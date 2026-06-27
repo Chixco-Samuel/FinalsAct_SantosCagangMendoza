@@ -26,6 +26,10 @@ public class ReportService implements Reportable {
     public void generateReport() throws ExceptionHandling {
         List<PaymentTransaction> transactions = paymentService.getAllTransactions();
 
+        if (transactions == null) {
+            throw new ExceptionHandling("Transaction list is null.");
+        }   
+
         if (transactions.isEmpty()) {
             System.out.println("No payment transactions available.");
             return;
