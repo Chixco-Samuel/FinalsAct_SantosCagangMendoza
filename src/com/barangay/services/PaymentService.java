@@ -1,7 +1,7 @@
 package com.barangay.services;
 
-import interfaces.Payment;
-import models.PaymentTransaction;
+import com.barangay.interfaces.Payment;
+import com.barangay.models.PaymentTransaction;
 import java.util.ArrayList;
 import java.util.List;
 
