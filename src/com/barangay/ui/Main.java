@@ -46,6 +46,24 @@ public class Main {
                         scanner.nextLine();
                     }
                     break;
+                case 2:
+                    System.out.println("\n=== ALL TRANSACTIONS ===");
+
+                    if (paymentService.getAllTransactions().isEmpty()) {
+                        System.out.println("No transactions found.");
+                    } else {
+                        for (PaymentTransaction txn : paymentService.getAllTransactions()) {
+                            System.out.println(txn);
+                        }
+                    }
+                    break;
+                case 3:
+                    System.out.println("Exiting system. Thank you for using Barangay Services!");
+                    running = false;
+                    break;
+
+                default:
+                    System.out.println("Invalid choice! Please select 1-3 only.");
     
             }
         }
