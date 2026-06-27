@@ -4,8 +4,6 @@ import com.barangay.exception.ExceptionHandling;
 import com.barangay.models.BarangayService;
 import com.barangay.models.Resident;
 import com.barangay.util.Repository;
-
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
@@ -30,10 +28,22 @@ public class ResidentService extends BarangayService {
     }
 
     public void registerResident(String id, String firstName, String lastName, int age) throws ExceptionHandling {
+        if (id == null || id.trim().isEmpty()) {
+            throw new ExceptionHandling("Resident ID cannot be empty.");
+        }
+        if (firstName == null || firstName.trim().isEmpty()) {
+            throw new ExceptionHandling("First name cannot be empty.");
+        }
+        if (lastName == null || lastName.trim().isEmpty()) {
+            throw new ExceptionHandling("Last name cannot be empty.");
+        }
+        if (age < 0) {
+            throw new ExceptionHandling("Age must be a positive number.");
+        }
         Resident resident = new Resident(id, firstName, lastName, age);
         registerResident(resident);
     }
-
+    
     public Resident findResidentByResidentId(String id) throws ExceptionHandling {
         for (Resident resident : residentRepo.getAll()) {
             if (resident.getResidentId().equals(id)) {
