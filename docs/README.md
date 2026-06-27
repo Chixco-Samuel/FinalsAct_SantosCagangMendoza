@@ -32,5 +32,6 @@ Rico
 Jacob
 
 * Programmed BarangayService file
-* Updated BarangayService 
+* Updated BarangayService
+* Add getters and setters for BarangayService fields
 
