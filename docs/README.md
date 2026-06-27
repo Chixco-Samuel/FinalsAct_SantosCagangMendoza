@@ -9,6 +9,7 @@ Chico
 * Input error handling in Resident file
 * Created Interfaces
 * Added error handling in barangay services
+* Programmed ResidentServices
 
 
 
