@@ -2,29 +2,30 @@ package com.barangay.services;
 import com.barangay.exception.ExceptionHandling;
 import com.barangay.models.BarangayService;
 import com.barangay.models.Resident;
+import com.barangay.util.Repository;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
 public class ResidentService extends BarangayService{
-    private List<Resident> residents;
+    private Repository<Resident> residentRepo = new Repository<>();
 
     public List<Resident> getAllResidents() {
-        return new ArrayList<>(residents);
+        return residentRepo.getAll();
     }
 
     public ResidentService() {
         super("RS001", "Resident Registration", "Service for registering new residents");
-        residents = new ArrayList<>();
     }
 
     public void registerResident(Resident resident) throws ExceptionHandling {
-    for (Resident r : residents) {
+    for (Resident r : residentRepo.getAll()) {
         if (r.getResidentId().equals(resident.getResidentId())) {
             throw new ExceptionHandling("Resident ID " + resident.getResidentId() + " already exists.");
         }
     }
-    residents.add(resident);
+    residentRepo.add(resident);
     }
 
     public void registerResident(String id, String firstName, String lastName, int age) {
@@ -35,7 +36,7 @@ public class ResidentService extends BarangayService{
     }
 
     public Resident findResidentByResidentId(String id) throws ExceptionHandling {
-        for (Resident resident : residents) {
+        for (Resident resident : residentRepo.getAll()) {
             if (resident.getResidentId().equals(id)) {
                 return resident;
             }
@@ -44,17 +45,17 @@ public class ResidentService extends BarangayService{
     }
 
     public void sortResidentsByLastName() {
-        residents.sort(Comparator.comparing(Resident::getLastName));
+        residentRepo.getAll().sort(Comparator.comparing(Resident::getLastName));
     }
 
     public List<Resident> searchByLastName(String keyword) {
-    return residents.stream()
+    return residentRepo.getAll().stream()
             .filter(r -> r.getLastName().toLowerCase().contains(keyword.toLowerCase()))
             .collect(java.util.stream.Collectors.toList());
     }
 
     public void displayResidents() {
-        for (Resident resident : residents) {
+        for (Resident resident : residentRepo.getAll()) {
             System.out.println(resident);
         }
     }
