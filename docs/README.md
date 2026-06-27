@@ -10,6 +10,8 @@ Chico
 * Created Interfaces
 * Added error handling in barangay services
 * Programmed ResidentServices
+* Assisted in Programming Main file
+* Adjusted imports in services folder
 
 
 
