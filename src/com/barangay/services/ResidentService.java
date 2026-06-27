@@ -18,7 +18,12 @@ public class ResidentService extends BarangayService{
         residents = new ArrayList<>();
     }
 
-    public void registerResident(Resident resident) {
+    public void registerResident(Resident resident) throws ExceptionHandling {
+    for (Resident r : residents) {
+        if (r.getResidentId().equals(resident.getResidentId())) {
+            throw new ExceptionHandling("Resident ID " + resident.getResidentId() + " already exists.");
+        }
+    }
     residents.add(resident);
     }
 
