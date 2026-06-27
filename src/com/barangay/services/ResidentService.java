@@ -1,4 +1,4 @@
-package services;
+package com.barangay.services;
 
 import models.Resident;
 import java.util.ArrayList;
