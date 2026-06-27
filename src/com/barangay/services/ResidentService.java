@@ -19,7 +19,7 @@ public class ResidentService extends BarangayService{
         new Resident(id, firstName, lastName, age);
 
     registerResident(resident);
-}
+    }
 
     public Resident findResidentByResidentId(String id) {
         for (Resident resident : residents) {
