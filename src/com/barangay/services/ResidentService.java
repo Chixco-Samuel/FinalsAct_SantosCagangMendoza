@@ -14,9 +14,12 @@ public class ResidentService extends BarangayService{
         residents = new ArrayList<>();
     }
 
-    public void registerResident(Resident resident) {
-        residents.add(resident);
-    }
+    public void registerResident(String id, String firstName, String lastName, int age) {
+    Resident resident =
+        new Resident(id, firstName, lastName, age);
+
+    registerResident(resident);
+}
 
     public Resident findResidentByResidentId(String id) {
         for (Resident resident : residents) {
