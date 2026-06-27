@@ -1,7 +1,7 @@
 package com.barangay.models;
 
-public class BarangayService {
-     private String serviceId;
+public abstract class BarangayService {
+    private String serviceId;
     private String serviceName;
     private String description;
 

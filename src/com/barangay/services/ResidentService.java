@@ -1,14 +1,16 @@
 package com.barangay.services;
 
+import com.barangay.models.BarangayService;
 import com.barangay.models.Resident;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class ResidentService {
+public class ResidentService extends BarangayService{
     private List<Resident> residents;
 
     public ResidentService() {
+        super("RS001", "Resident Registration", "Service for registering new residents");
         residents = new ArrayList<>();
     }
 
