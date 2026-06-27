@@ -1,5 +1,7 @@
 package com.barangay.models;
 
+import java.util.Objects;
+
 public abstract class BarangayService {
     private String serviceId;
     private String serviceName;
@@ -45,12 +47,16 @@ public abstract class BarangayService {
     }
 
     @Override
-    public String toString() {
-        return "BarangayService{" +
-                "serviceId='" + serviceId + '\'' +
-                ", serviceName='" + serviceName + '\'' +
-                ", description='" + description + '\'' +
-                '}';
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof BarangayService)) return false;
+        BarangayService that = (BarangayService) o;
+        return Objects.equals(serviceId, that.serviceId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(serviceId);
     }
 }
     

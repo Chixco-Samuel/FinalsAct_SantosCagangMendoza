@@ -15,6 +15,14 @@ public class Repository<T> {
         records.add(item);
     }
 
+    public void remove(T item) {
+        records.remove(item);
+    }
+
+    public int count() {
+        return records.size();
+    }
+
     public List<T> getAll() {
         return records;
     }
