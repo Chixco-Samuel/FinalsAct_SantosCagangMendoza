@@ -13,13 +13,15 @@ public class Main {
         System.out.println("=== Barangay Services Management System ===");
         
         while (running) {
+
             System.out.println("\n--- MAIN MENU ---");
             System.out.println("1. Process New Payment");
             System.out.println("2. View All Transactions");
             System.out.println("3. Exit Application");
             System.out.print("Enter your choice: ");
             
-            int choice = -1;
+            int choice;
+
             if (scanner.hasNextInt()) {
                 choice = scanner.nextInt();
                 scanner.nextLine(); 
@@ -31,18 +33,20 @@ public class Main {
             
             switch (choice) {
                 case 1:
-                    System.out.println("\n[System] Payment processing feature coming up next...");
-                    break;
-                case 2:
-                    System.out.println("\n[System] Transaction history tracking coming up next...");
-                    break;
-                case 3:
-                    System.out.println("\nExiting system. Thank you for using Barangay Services!");
-                    running = false;
-                    break;
-                default:
-                    System.out.println("Invalid option! Please pick a number between 1 and 3.");
-            }
+    System.out.print("Enter payment amount: ");
+
+    if (scanner.hasNextDouble()) {
+        double amount = scanner.nextDouble();
+        scanner.nextLine();
+
+        paymentService.processPayment(amount);
+
+    } else {
+        System.out.println("Invalid input! Please enter a valid number.");
+        scanner.nextLine();
+    }
+    break;
+    }
         }
         scanner.close();
     }
