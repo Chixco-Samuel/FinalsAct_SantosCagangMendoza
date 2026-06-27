@@ -18,7 +18,12 @@ public class ResidentService extends BarangayService{
         residents = new ArrayList<>();
     }
 
-    public void registerResident(Resident resident) {
+    public void registerResident(Resident resident) throws ExceptionHandling {
+    for (Resident r : residents) {
+        if (r.getResidentId().equals(resident.getResidentId())) {
+            throw new ExceptionHandling("Resident ID " + resident.getResidentId() + " already exists.");
+        }
+    }
     residents.add(resident);
     }
 
@@ -40,6 +45,12 @@ public class ResidentService extends BarangayService{
 
     public void sortResidentsByLastName() {
         residents.sort(Comparator.comparing(Resident::getLastName));
+    }
+
+    public List<Resident> searchByLastName(String keyword) {
+    return residents.stream()
+            .filter(r -> r.getLastName().toLowerCase().contains(keyword.toLowerCase()))
+            .collect(java.util.stream.Collectors.toList());
     }
 
     public void displayResidents() {
