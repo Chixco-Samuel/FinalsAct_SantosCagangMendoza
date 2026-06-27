@@ -1,7 +1,7 @@
-package com.barangay.services;
+package services;
 
-import com.barangay.interfaces.Reportable;
-import com.barangay.models.PaymentTransaction;
+import interfaces.Reportable;
+import models.PaymentTransaction;
 import java.util.List;
 
 public class ReportService implements Reportable {
@@ -22,4 +22,18 @@ public class ReportService implements Reportable {
         }
 
         double totalAmount = 0;
+
+        System.out.println("\n========== PAYMENT REPORT ==========");
+
+        for (PaymentTransaction transaction : transactions) {
+            System.out.println(transaction);
+            totalAmount += transaction.getAmount();
+        }
+
+        System.out.println("------------------------------------");
+        System.out.println("Total Transactions: " + transactions.size());
+        System.out.println("Total Amount Collected: " + totalAmount);
+        System.out.println("====================================");
     }
+}
+    
