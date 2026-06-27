@@ -20,7 +20,7 @@ public class PaymentService implements Payment {
         }
 
         String generatedId = "TXN-" + (transactions.size() + 1);
-        // This constructor call now safely passes along the ExceptionHandling rule
+       
         PaymentTransaction newTxn = new PaymentTransaction(generatedId, "UNKNOWN", "General Payment", amount, "COMPLETED");
         transactions.add(newTxn);
         System.out.println("Payment processed successfully! ID: " + generatedId);
