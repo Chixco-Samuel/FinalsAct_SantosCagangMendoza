@@ -47,8 +47,8 @@ RUN PROGRAM == "java -cp out com.barangay.ui.Main"
 
 
 ===== GROUP CONTRIBUTIONS ======
-Chico
 
+Chico
 * Created files and directories
 * Programmed Resident file
 * Input error handling in Resident file
@@ -73,9 +73,13 @@ Rico
 * Initialize Main file
 * Fixed Main.java
 * Fixed the Exception method
+* Compiled Java files
 
 Jacob
-
 * Programmed BarangayService file
-* Updated BarangayService 
+* Updated BarangayService
+* Programmed Main file
+* Programmed ReportService
+* Adjusted ReportService
+* Assisted in ExceptionHandling file
 
