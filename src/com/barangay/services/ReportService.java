@@ -12,6 +12,14 @@ public class ReportService implements Reportable {
     
     }
 
+    public double getTotalCollected() {
+        return paymentService
+                .getAllTransactions()
+                .stream()
+                .mapToDouble(PaymentTransaction::getAmount)
+                .sum();
+    }
+
     @Override
     public void generateReport() {
         List<PaymentTransaction> transactions = paymentService.getAllTransactions();
