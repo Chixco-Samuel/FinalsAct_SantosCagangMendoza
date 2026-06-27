@@ -27,7 +27,7 @@ src/
 ├── com/barangay/services/      → ResidentService.java, PaymentService.java, ReportService.java
 ├── com/barangay/ui/            → Main.java
 └── com/barangay/util/          → Repository.java
-out/                            → All compiled classes
+bin/                            → All compiled classes
 docs/                           → README.md, UML Class Diagram
 
 
