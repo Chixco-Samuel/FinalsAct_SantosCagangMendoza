@@ -10,4 +10,16 @@ public class ReportService implements Reportable {
     public ReportService(PaymentService paymentService) {
         this.paymentService = paymentService;
     
-}
+    }
+
+    @Override
+    public void generateReport() {
+        List<PaymentTransaction> transactions = paymentService.getAllTransactions();
+
+        if (transactions.isEmpty()) {
+            System.out.println("No payment transactions available.");
+            return;
+        }
+
+        double totalAmount = 0;
+    }
