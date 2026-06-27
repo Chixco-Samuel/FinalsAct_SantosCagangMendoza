@@ -2,6 +2,7 @@ package com.barangay.services;
 import com.barangay.models.Resident;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Comparator;
 
 public class ResidentService {
     private List<Resident> residents;
@@ -21,5 +22,9 @@ public class ResidentService {
             }
         }
         return null;
+    }
+
+    public void sortResidentsByLastName() {
+        residents.sort(Comparator.comparing(Resident::getLastName));
     }
 }
