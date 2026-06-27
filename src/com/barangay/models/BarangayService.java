@@ -47,6 +47,15 @@ public abstract class BarangayService {
     }
 
     @Override
+    public String toString() {
+        return "BarangayService{" +
+                "serviceId='" + serviceId + '\'' +
+                ", serviceName='" + serviceName + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof BarangayService)) return false;
