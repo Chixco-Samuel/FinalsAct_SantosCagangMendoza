@@ -1,13 +1,13 @@
 package com.barangay.ui;
 
-import com.barangay.services.PaymentService;
-import com.barangay.models.PaymentTransaction;
 import com.barangay.exception.ExceptionHandling;
+import com.barangay.models.PaymentTransaction;
+import com.barangay.services.PaymentService;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ExceptionHandling {
         Scanner scanner = new Scanner(System.in);
         PaymentService paymentService = new PaymentService();
         boolean running = true;
