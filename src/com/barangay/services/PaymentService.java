@@ -22,7 +22,7 @@ public class PaymentService extends BarangayService implements Payment {
     PaymentTransaction newTxn = new PaymentTransaction(generatedId, residentId, purpose, amount, "COMPLETED");
     transactions.add(newTxn);
     System.out.println("Payment processed! Transaction ID: " + generatedId);
-}
+    }
 
     public void addTransaction(PaymentTransaction transaction) {
         if (transaction == null) {

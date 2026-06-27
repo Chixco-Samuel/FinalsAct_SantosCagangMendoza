@@ -1,4 +1,4 @@
-package com.barangay.services;
+package com.barangay.util;
 
 import java.util.ArrayList;
 import java.util.List;
