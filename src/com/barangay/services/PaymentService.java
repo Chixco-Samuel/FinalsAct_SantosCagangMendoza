@@ -14,14 +14,15 @@ public class PaymentService extends BarangayService implements Payment {
         this.transactions = new ArrayList<>();
     }
 
-    public void processPayment(String residentId, String purpose, double amount) throws ExceptionHandling {
-    if (amount <= 0) {
-        throw new ExceptionHandling("Payment amount must be greater than zero.");
-    }
-    String generatedId = "TXN-" + (transactions.size() + 1);
-    PaymentTransaction newTxn = new PaymentTransaction(generatedId, residentId, purpose, amount, "COMPLETED");
-    transactions.add(newTxn);
-    System.out.println("Payment processed! Transaction ID: " + generatedId);
+    @Override
+    public void processPayment(double amount) throws ExceptionHandling {
+        if (amount <= 0) {
+            throw new ExceptionHandling("Payment amount must be greater than zero.");
+        }
+        String generatedId = "TXN-" + (transactions.size() + 1);
+        PaymentTransaction newTxn = new PaymentTransaction(generatedId, "UNKNOWN", "General Payment", amount, "COMPLETED");
+        transactions.add(newTxn);
+        System.out.println("Payment processed successfully! ID: " + generatedId);
     }
 
     public void addTransaction(PaymentTransaction transaction) {

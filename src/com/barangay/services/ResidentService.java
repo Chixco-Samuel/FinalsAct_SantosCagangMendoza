@@ -42,6 +42,12 @@ public class ResidentService extends BarangayService{
         residents.sort(Comparator.comparing(Resident::getLastName));
     }
 
+    public List<Resident> searchByLastName(String keyword) {
+    return residents.stream()
+            .filter(r -> r.getLastName().toLowerCase().contains(keyword.toLowerCase()))
+            .collect(java.util.stream.Collectors.toList());
+    }
+
     public void displayResidents() {
         for (Resident resident : residents) {
             System.out.println(resident);
