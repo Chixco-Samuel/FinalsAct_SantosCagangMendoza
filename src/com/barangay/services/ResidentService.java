@@ -1,5 +1,5 @@
 package com.barangay.services;
-
+import com.barangay.exception.ExceptionHandling;
 import com.barangay.models.BarangayService;
 import com.barangay.models.Resident;
 import java.util.ArrayList;
@@ -14,6 +14,10 @@ public class ResidentService extends BarangayService{
         residents = new ArrayList<>();
     }
 
+    public void registerResident(Resident resident) {
+    residents.add(resident);
+    }
+
     public void registerResident(String id, String firstName, String lastName, int age) {
     Resident resident =
         new Resident(id, firstName, lastName, age);
@@ -21,13 +25,13 @@ public class ResidentService extends BarangayService{
     registerResident(resident);
     }
 
-    public Resident findResidentByResidentId(String id) {
+    public Resident findResidentByResidentId(String id) throws ExceptionHandling {
         for (Resident resident : residents) {
             if (resident.getResidentId().equals(id)) {
                 return resident;
             }
         }
-        return null;
+        throw new ExceptionHandling("Resident ID not found.");
     }
 
     public void sortResidentsByLastName() {
