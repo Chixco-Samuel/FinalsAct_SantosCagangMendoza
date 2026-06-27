@@ -1,14 +1,15 @@
 package com.barangay.services;
-
 import com.barangay.interfaces.Payment;
+import com.barangay.models.BarangayService;
 import com.barangay.models.PaymentTransaction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PaymentService implements Payment {
+public class PaymentService extends BarangayService implements Payment {
     private List<PaymentTransaction> transactions;
 
     public PaymentService() {
+        super("PS001", "Payment Processing", "Service for processing payments");
         this.transactions = new ArrayList<>();
     }
 
