@@ -1,4 +1,4 @@
-package services;
+package com.barangay.services;
 
 import interfaces.Reportable;
 import models.PaymentTransaction;

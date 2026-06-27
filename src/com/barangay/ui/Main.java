@@ -1,7 +1,7 @@
 package com.barangay.ui;
 
-import com.barangay.services.PaymentService;
-import com.barangay.models.PaymentTransaction;
+import barangay.services.PaymentService;
+import barangay.models.PaymentTransaction;
 import java.util.Scanner;
 
 public class Main {
