@@ -34,4 +34,6 @@ Jacob
 * Programmed BarangayService file
 * Updated BarangayService
 * Add getters and setters for BarangayService fields
+* programmed ReportSerive file
+* add package struture for service folder
 
