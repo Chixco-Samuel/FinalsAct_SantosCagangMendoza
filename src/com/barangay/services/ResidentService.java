@@ -1,8 +1,8 @@
 package com.barangay.services;
 import com.barangay.models.Resident;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Comparator;
+import java.util.List;
 
 public class ResidentService {
     private List<Resident> residents;
@@ -15,9 +15,9 @@ public class ResidentService {
         residents.add(resident);
     }
 
-    public Resident findResidentById(String id) {
+    public Resident findResidentByResidentId(String id) {
         for (Resident resident : residents) {
-            if (resident.getId().equals(id)) {
+            if (resident.getResidentId().equals(id)) {
                 return resident;
             }
         }
@@ -26,5 +26,11 @@ public class ResidentService {
 
     public void sortResidentsByLastName() {
         residents.sort(Comparator.comparing(Resident::getLastName));
+    }
+
+    public void displayResidents() {
+        for (Resident resident : residents) {
+            System.out.println(resident);
+        }
     }
 }
