@@ -1,5 +1,6 @@
 package com.barangay.models;
 
+import com.barangay.exception.ExceptionHandling;
 import java.util.Date;
 import java.util.Objects;
 
@@ -15,7 +16,7 @@ public class PaymentTransaction {
         this.transactionDate = new Date(); 
     }
 
-    public PaymentTransaction(String transactionId, String residentId, String purpose, double amount, String paymentStatus) {
+    public PaymentTransaction(String transactionId, String residentId, String purpose, double amount, String paymentStatus) throws ExceptionHandling {
         setTransactionId(transactionId);
         setResidentId(residentId);
         setPurpose(purpose);
@@ -28,9 +29,9 @@ public class PaymentTransaction {
         return transactionId;
     }
 
-    public void setTransactionId(String transactionId) {
+    public void setTransactionId(String transactionId) throws ExceptionHandling {
         if (transactionId == null || transactionId.trim().isEmpty()) {
-            throw new IllegalArgumentException("Transaction ID cannot be null or empty.");
+            throw new ExceptionHandling("Transaction ID cannot be null or empty.");
         }
         this.transactionId = transactionId;
     }
@@ -39,9 +40,9 @@ public class PaymentTransaction {
         return residentId;
     }
 
-    public void setResidentId(String residentId) {
+    public void setResidentId(String residentId) throws ExceptionHandling {
         if (residentId == null || residentId.trim().isEmpty()) {
-            throw new IllegalArgumentException("Resident ID cannot be null or empty.");
+            throw new ExceptionHandling("Resident ID cannot be null or empty.");
         }
         this.residentId = residentId;
     }
@@ -50,9 +51,9 @@ public class PaymentTransaction {
         return purpose;
     }
 
-    public void setPurpose(String purpose) {
+    public void setPurpose(String purpose) throws ExceptionHandling {
         if (purpose == null || purpose.trim().isEmpty()) {
-            throw new IllegalArgumentException("Purpose cannot be null or empty.");
+            throw new ExceptionHandling("Purpose cannot be null or empty.");
         }
         this.purpose = purpose;
     }
@@ -61,9 +62,9 @@ public class PaymentTransaction {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(double amount) throws ExceptionHandling {
         if (amount <= 0) {
-            throw new IllegalArgumentException("Payment amount must be greater than zero. Negative values are not allowed.");
+            throw new ExceptionHandling("Payment amount must be greater than zero. Negative values are not allowed.");
         }
         this.amount = amount;
     }
@@ -72,12 +73,12 @@ public class PaymentTransaction {
         return transactionDate;
     }
 
-    public void setTransactionDate(Date transactionDate) {
+    public void setTransactionDate(Date transactionDate) throws ExceptionHandling {
         if (transactionDate == null) {
-            throw new IllegalArgumentException("Transaction date cannot be null.");
+            throw new ExceptionHandling("Transaction date cannot be null.");
         }
         if (transactionDate.after(new Date())) {
-            throw new IllegalArgumentException("Transaction date cannot be in the future.");
+            throw new ExceptionHandling("Transaction date cannot be in the future.");
         }
         this.transactionDate = transactionDate;
     }
@@ -86,16 +87,16 @@ public class PaymentTransaction {
         return paymentStatus;
     }
 
-    public void setPaymentStatus(String paymentStatus) {
+    public void setPaymentStatus(String paymentStatus) throws ExceptionHandling {
         if (paymentStatus == null || paymentStatus.trim().isEmpty()) {
-            throw new IllegalArgumentException("Payment status cannot be null or empty.");
+            throw new ExceptionHandling("Payment status cannot be null or empty.");
         }
         
         String status = paymentStatus.trim().toUpperCase();
         if (status.equals("PENDING") || status.equals("COMPLETED") || status.equals("FAILED")) {
             this.paymentStatus = status;
         } else {
-            throw new IllegalArgumentException("Invalid status. Must be PENDING, COMPLETED, or FAILED.");
+            throw new ExceptionHandling("Invalid status. Must be PENDING, COMPLETED, or FAILED.");
         }
     }
 
