@@ -1,5 +1,6 @@
 package com.barangay.models;
 
+import com.barangay.exception.ExceptionHandling;
 import java.util.Objects;
 
 public abstract class BarangayService {
@@ -7,26 +8,26 @@ public abstract class BarangayService {
     private String serviceName;
     private String description;
 
-    public BarangayService(String serviceId, String serviceName, String description) {
+    public BarangayService(String serviceId, String serviceName, String description) throws ExceptionHandling {
         setServiceId(serviceId);
         setServiceName(serviceName);
         setDescription(description);
     }
 
-    public void setServiceId(String serviceId) {
+    public void setServiceId(String serviceId) throws ExceptionHandling {
         if (serviceId == null || serviceId.trim().isEmpty()) {
-            throw new IllegalArgumentException("Service ID cannot be null or empty.");
+            throw new ExceptionHandling("Service ID cannot be null or empty.");
         }
         this.serviceId = serviceId;
     }
 
-     public String getServiceId() {
+    public String getServiceId() {
         return serviceId;
     }
 
-    public void setServiceName(String serviceName) {
+    public void setServiceName(String serviceName) throws ExceptionHandling {
         if (serviceName == null || serviceName.trim().isEmpty()) {
-            throw new IllegalArgumentException("Service name cannot be null or empty.");
+            throw new ExceptionHandling("Service name cannot be null or empty.");
         }
         this.serviceName = serviceName;
     }
@@ -35,9 +36,9 @@ public abstract class BarangayService {
         return serviceName;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(String description) throws ExceptionHandling {
         if (description == null || description.trim().isEmpty()) {
-            throw new IllegalArgumentException("Description cannot be null or empty.");
+            throw new ExceptionHandling("Description cannot be null or empty.");
         }
         this.description = description;
     }
@@ -68,10 +69,3 @@ public abstract class BarangayService {
         return Objects.hash(serviceId);
     }
 }
-    
-
-
-
-
-
-
