@@ -2,6 +2,7 @@ package com.barangay.ui;
 
 import com.barangay.services.PaymentService;
 import com.barangay.models.PaymentTransaction;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -33,6 +34,42 @@ public class Main {
             
             switch (choice) {
                 case 1:
+<<<<<<< HEAD
+                    System.out.print("\nEnter payment amount (PHP): ");
+                    if (scanner.hasNextDouble()) {
+                        double amount = scanner.nextDouble();
+                        scanner.nextLine(); 
+                        try {
+                            paymentService.processPayment(amount);
+                        } catch (IllegalArgumentException e) {
+                            System.out.println("Error processing payment: " + e.getMessage());
+                        }
+                    } else {
+                        System.out.println("Invalid amount entered!");
+                        scanner.nextLine();
+                    }
+                    break;
+                    
+                case 2:
+                    System.out.println("\n--- TRANSACTION RECORDS ---");
+                    List<PaymentTransaction> list = paymentService.getAllTransactions();
+                    if (list.isEmpty()) {
+                        System.out.println("No records found in current session.");
+                    } else {
+                        for (PaymentTransaction txn : list) {
+                            System.out.println(txn);
+                        }
+                    }
+                    break;
+                    
+                case 3:
+                    System.out.println("\nExiting system. Thank you for using Barangay Services!");
+                    running = false;
+                    break;
+                    
+                default:
+                    System.out.println("Invalid option! Please pick a number between 1 and 3.");
+=======
                     System.out.print("Enter payment amount: ");
 
                     if (scanner.hasNextDouble()) {
@@ -65,6 +102,7 @@ public class Main {
                 default:
                     System.out.println("Invalid choice! Please select 1-3 only.");
     
+>>>>>>> cf31a14e6f647bbbb70594847539e303fb05c5cb
             }
         }
         scanner.close();

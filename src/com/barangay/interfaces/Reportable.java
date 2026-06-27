@@ -1,5 +1,7 @@
 package com.barangay.interfaces;
 
+import com.barangay.exception.ExceptionHandling;
+
 public interface Reportable {
-    void generateReport();
+    void generateReport() throws ExceptionHandling;
 }
