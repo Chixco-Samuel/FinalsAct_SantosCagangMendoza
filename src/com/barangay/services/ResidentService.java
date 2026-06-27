@@ -9,6 +9,10 @@ import java.util.List;
 public class ResidentService extends BarangayService{
     private List<Resident> residents;
 
+    public List<Resident> getAllResidents() {
+        return new ArrayList<>(residents);
+    }
+
     public ResidentService() {
         super("RS001", "Resident Registration", "Service for registering new residents");
         residents = new ArrayList<>();
