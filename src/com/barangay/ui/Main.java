@@ -33,20 +33,21 @@ public class Main {
             
             switch (choice) {
                 case 1:
-    System.out.print("Enter payment amount: ");
+                    System.out.print("Enter payment amount: ");
 
-    if (scanner.hasNextDouble()) {
-        double amount = scanner.nextDouble();
-        scanner.nextLine();
+                    if (scanner.hasNextDouble()) {
+                        double amount = scanner.nextDouble();
+                        scanner.nextLine();
 
-        paymentService.processPayment(amount);
+                        paymentService.processPayment(amount);
 
-    } else {
-        System.out.println("Invalid input! Please enter a valid number.");
-        scanner.nextLine();
-    }
-    break;
-    }
+                    } else {
+                        System.out.println("Invalid input! Please enter a valid number.");
+                        scanner.nextLine();
+                    }
+                    break;
+    
+            }
         }
         scanner.close();
     }
