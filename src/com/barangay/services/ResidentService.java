@@ -1,9 +1,10 @@
 package com.barangay.services;
 
-import models.Resident;
+import com.barangay.models.Resident;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+
 public class ResidentService {
     private List<Resident> residents;
 

@@ -1,7 +1,7 @@
 package com.barangay.services;
 
-import interfaces.Reportable;
-import models.PaymentTransaction;
+import com.barangay.interfaces.Reportable;
+import com.barangay.models.PaymentTransaction;
 import java.util.List;
 
 public class ReportService implements Reportable {
