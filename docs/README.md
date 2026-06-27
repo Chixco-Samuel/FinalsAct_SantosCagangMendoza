@@ -12,6 +12,11 @@ Chico
 * Programmed ResidentServices
 * Programmed ExceptionHandling file
 * Adjusted imports in services folder
+* Added Repository file and folder
+* Added no duplicate id handling
+* added hash and equals to barangay service file
+* added resident count in report service
+* Created abstract class and extended them
 
 
 
