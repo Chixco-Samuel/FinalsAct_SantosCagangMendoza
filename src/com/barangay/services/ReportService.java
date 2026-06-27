@@ -1,18 +1,10 @@
 package com.barangay.services;
-import com.barangay.models.BarangayService;
+
 import com.barangay.interfaces.Reportable;
 import com.barangay.models.PaymentTransaction;
 import java.util.List;
 
 public class ReportService implements Reportable {
-    private BarangayService barangayService;
-    private PaymentService paymentService;
-
-    public ReportService(BarangayService barangayService, PaymentService paymentService) {
-        this.barangayService = barangayService;
-        this.paymentService = paymentService;
-    }
-
     private PaymentService paymentService;
 
     public ReportService(PaymentService paymentService) {
