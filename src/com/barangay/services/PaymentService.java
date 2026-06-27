@@ -3,13 +3,15 @@ package com.barangay.services;
 import com.barangay.interfaces.Payment;
 import com.barangay.models.PaymentTransaction;
 import com.barangay.exception.ExceptionHandling;
+import com.barangay.models.BarangayService;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PaymentService implements Payment {
+public class PaymentService extends BarangayService implements Payment {
     private List<PaymentTransaction> transactions;
 
-    public PaymentService() {
+    public PaymentService() throws ExceptionHandling {
+        super("PS001", "Payment Processing", "Service for processing payments");
         this.transactions = new ArrayList<>();
     }
 
