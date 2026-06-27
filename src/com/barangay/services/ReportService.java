@@ -1,6 +1,8 @@
 package com.barangay.services;
+
 import com.barangay.interfaces.Reportable;
 import com.barangay.models.PaymentTransaction;
+import com.barangay.exception.ExceptionHandling;
 import java.util.List;
 
 public class ReportService implements Reportable {
@@ -21,7 +23,7 @@ public class ReportService implements Reportable {
     }
 
     @Override
-    public void generateReport() {
+    public void generateReport() throws ExceptionHandling {
         List<PaymentTransaction> transactions = paymentService.getAllTransactions();
 
         if (transactions.isEmpty()) {
@@ -50,4 +52,3 @@ public class ReportService implements Reportable {
         System.out.println("====================================");
     }
 }
-    
